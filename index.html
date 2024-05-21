@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Industrial Patents Statistics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Statistics on Industrial Patents</h2>
+
+<div class="chart-container">
+    <canvas id="patentsChart"></canvas>
+</div>
+
+<script>
+    const ctx = document.getElementById('patentsChart').getContext('2d');
+
+    const data = {
+        labels: [
+            'AI Total 2022', 'AI China 2022', 'AI US 2022', 
+            'AI EU/UK 2022', 'AI Others 2022', 'US Biotech 2020', 
+            'Biotech Category', 'Semiconductors 2023', 'TSMC 2023', 
+            'Top 3 Filers', 'Samsung Telecom 2020', 'Huawei Telecom 2020', 
+            'Samsung IoT 2022', 'LG IoT 2022', 'Huawei IoT 2022', 'Qualcomm IoT 2022'
+        ],
+        datasets: [{
+            label: 'Patents and Percentages',
+            data: [
+                62264, 35315, 12077, 1173, 13699, 39, 5.7, 69190, 
+                3442, 43432, 397, 328, 23162, 11169, 10429, 9454
+            ],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(199, 199, 199, 0.2)',
+                'rgba(83, 102, 255, 0.2)',
+                'rgba(0, 123, 255, 0.2)',
+                'rgba(40, 167, 69, 0.2)',
+                'rgba(220, 53, 69, 0.2)',
+                'rgba(255, 193, 7, 0.2)',
+                'rgba(111, 66, 193, 0.2)',
+                'rgba(23, 162, 184, 0.2)',
+                'rgba(255, 133, 27, 0.2)',
+                'rgba(61, 153, 112, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(199, 199, 199, 1)',
+                'rgba(83, 102, 255, 1)',
+                'rgba(0, 123, 255, 1)',
+                'rgba(40, 167, 69, 1)',
+                'rgba(220, 53, 69, 1)',
+                'rgba(255, 193, 7, 1)',
+                'rgba(111, 66, 193, 1)',
+                'rgba(23, 162, 184, 1)',
+                'rgba(255, 133, 27, 1)',
+                'rgba(61, 153, 112, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Number of Patents / Percentage'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Categories'
+                    }
+                }
+            }
+        }
+    };
+
+    const patentsChart = new Chart(ctx, config);
+</script>
+
+</body>
+</html>
